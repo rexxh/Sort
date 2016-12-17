@@ -1,4 +1,4 @@
-#include <sort_by_TAHK.cpp>
+#include <sort.cpp>
 #include <catch.hpp>
 #include <string>
 #include <iostream>
@@ -7,7 +7,7 @@ using namespace std;
 
 SCENARIO("8mb", "[8mb]")
 {
- sort_by_TAHK("8mb", "out_8", 1);
+ sort("8mb", "out_8", 1);
   bool x = true;
   std::ifstream f1("out_8"), f2("out8");
   man m1, m2;
@@ -30,7 +30,7 @@ SCENARIO("8mb", "[8mb]")
 
 SCENARIO("15mb", "[15mb]")
 {
-  sort_by_TAHK("15mb", "out_15", 4);
+  sort("15mb", "out_15", 4);
   bool x = true;
   std::ifstream f1("out_15"), f2("out15");
   man m1, m2;
@@ -53,7 +53,7 @@ SCENARIO("15mb", "[15mb]")
 
 SCENARIO("32mb", "[32mb]")
 {
-  sort_by_TAHK("32mb", "out_32", 17);
+  sort("32mb", "out_32", 17);
   bool x = true;
   std::ifstream f1("out_32"), f2("out32");
   man m1, m2;
