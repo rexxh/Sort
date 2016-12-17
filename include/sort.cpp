@@ -8,41 +8,38 @@ using namespace std;
 
 struct man
 {
-	string name;
-	string surname;
-	short year;
+	string stroka;
 	size_t size() const
 	{
-		size_t string_obj_size = sizeof(string);
-		return string_obj_size * 2 + name.size() + surname.size() + sizeof(short);
+		return stroka.size() + sizeof(string);
 	}
 };
 
 bool operator < (const man & m1, const man & m2)
 {
-	return (m1.name < m2.name);
+	return (m1.stroka < m2.stroka);
 }
 
-bool operator >(const man & m1, const man & m2)
+bool operator < (const man & m1, const man & m2)
 {
-	return (m1.name > m2.name);
+	return (m1.stroka < m2.stroka);
 }
 
 ostream & operator<<(ostream & output, man const & m)
 {
-	output << m.surname << " " << m.name << " " << m.year;
+	output << m.stroka;
 	return output;
 }
 
 istream & operator>>(istream & input, man & m)
 {
-	input >> m.surname >> m.name >> m.year;
+	input >> m.stroka;
 	return input;
 }
 
 bool operator != (const man& m, const string& str)
 {
-	return (m.surname != str);
+	return (m.stroka != str);
 }
 
 struct file_man
