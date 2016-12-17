@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
-#include <chrono>
 using namespace std;
 
 struct man
@@ -58,7 +57,7 @@ bool operator < (const file_man& mf1, const file_man& mf2)
 	return (mf1.data > mf2.data);
 }
 
-void sort(const string& input_name, const string& output_name, const size_t mem_size)
+void sorting(const string& input_name, const string& output_name, const size_t file_size)
 {
 
 	////   PART II   ////
@@ -67,7 +66,7 @@ void sort(const string& input_name, const string& output_name, const size_t mem_
 	if (!fin.is_open()) throw("file_not_open");
 	ofstream fout(output_name, ios::binary);
 	size_t n = 0;
-	const size_t buffer_size = mem_size * 1024 * 1024 * 0.6;
+	const size_t buffer_size = file_size * 1024 * 1024 * 0.6;
 	while (!fin.eof())
 	{
 		vector<man> v; 
