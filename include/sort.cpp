@@ -60,7 +60,7 @@ bool operator < (const file_man& mf1, const file_man& mf2)
 void sorting(const string& input_name, const string& output_name, const size_t file_size)
 {
 
-	////   PART II   ////
+	////   PART I   ////
 
 	ifstream fin(input_name, ios::binary);
 	if (!fin.is_open()) throw("file_not_open");
