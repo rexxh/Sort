@@ -83,7 +83,7 @@ SCENARIO("8mb", "[8mb]")
   {
     if((f1>>m1)&&(f2>>m2))
     {
-      if(m1.name!=m2.name)
+      if(m1.stroka!=m2.stroka)
       {
         x=false;
         break;
