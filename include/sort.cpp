@@ -1,48 +1,46 @@
+#include <vector>
+#include <string>
+#include <algorithm>
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <vector>
-#include <algorithm>
 #include <queue>
 using namespace std; 
 
 struct man
 {
-	string name;
-	string surname;
-	short year;
+	string stroka;
+	
 	size_t size() const
 	{
-		size_t string_obj_size = sizeof(string);
-		return string_obj_size * 2 + name.size() + surname.size() + sizeof(short);
+		return sizeof(string) + stroka.size();
 	}
 };
 
 bool operator < (const man & m1, const man & m2)
 {
-	return (m1.name < m2.name);
+	return (m1.stroka < m2.stroka);
 }
 
 bool operator >(const man & m1, const man & m2)
 {
-	return (m1.name > m2.name);
+	return (m1.stroka > m2.stroka);
 }
 
 ostream & operator<<(ostream & output, man const & m)
 {
-	output << m.surname << " " << m.name << " " << m.year;
+	output << m.stroka;
 	return output;
 }
 
 istream & operator>>(istream & input, man & m)
 {
-	input >> m.surname >> m.name >> m.year;
+	std::getline(input, m.stroka);
 	return input;
 }
 
 bool operator != (const man& m, const string& str)
 {
-	return (m.surname != str);
+	return (m.stroka != str);
 }
 
 struct file_man
@@ -69,7 +67,7 @@ void sorting(const string& input_name, const string& output_name, const size_t f
 	const size_t buffer_size = file_size * 1024 * 1024 * 0.6;
 	while (!fin.eof())
 	{
-		vector<man> v; 
+		vector<man> v;
 		man m;
 		ofstream fout_(to_string(n + 1), ios::binary);
 		unsigned long int size = 0;
@@ -120,3 +118,4 @@ void sorting(const string& input_name, const string& output_name, const size_t f
 	}
 	fout.close();
 }
+
