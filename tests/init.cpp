@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
+ 
 SCENARIO("8mb", "[8mb]")
 {
  sort("8mb", "out_8", 1);
